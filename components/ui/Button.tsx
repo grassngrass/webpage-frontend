@@ -13,8 +13,8 @@ const Button: FC<ButtonProps> = ({ title, onClick, className = "", type = "butto
     <button
       type={type}
       onClick={onClick}
-      className={`relative px-10 py-3 border-3 border-[#FFFFFF] bg-[#111112] text-white text-3xl font-orbitron
-        shadow-[4px_4px_0_0_#79FFD8] hover:scale-90 transition-transform duration-200 ${className}`}
+      className={`relative px-10 py-3 border-3 border-white bg-black text-white text-3xl font-orbitron
+        shadow-[4px_4px_0_0_light-green] hover:scale-90 transition-transform duration-200 ${className}`}
     >
     {title}
     </button>
