@@ -7,6 +7,7 @@ interface ButtonProps {
   department: string;
   lastSave: string;
   onDelete?: () => void;
+  onClick?: () => void;
 }
 
 const ApplicationCard: React.FC<ButtonProps> = ({
@@ -14,6 +15,7 @@ const ApplicationCard: React.FC<ButtonProps> = ({
   department,
   lastSave,
   onDelete,
+  onClick,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -21,7 +23,7 @@ const ApplicationCard: React.FC<ButtonProps> = ({
     // Submitted state style
     return (
       <button
-        className="relative w-64 h-64 bg-black border border-gray-300 shadow-md overflow-hidden cursor-pointer"
+        className="relative w-64 h-64 bg-black border-3 border-white shadow-[3px_3px_0_0_lightgreen] overflow-hidden transition-transform duration-300 hover:-translate-1"
       >
 
 
@@ -29,15 +31,18 @@ const ApplicationCard: React.FC<ButtonProps> = ({
           SUBMITTED
         </div>
 
-        <div className="absolute top-2 left-6 text-sm">
-          <div className="font-semibold">{department}</div>
-          <div className="text-gray-500 text-xs">{lastSave}</div>
+        <div className="absolute bottom-2 left-6 text-sm">
+          <div className="font-orbitron font-bold text-green text-xl">{department}</div>
+          <div className="flex items-center font-orbitron">
+            <div className="font-mono text-gray-500 text-xs">LAST SAVE:</div>
+            <div className="text-white tracking-widest ml-1 text-base">{lastSave}</div>
+          </div>
         </div>
 
         {/* Center graphic */}
-        <div className="absolute inset-0 flex items-center justify-center">
+        <div className="absolute -top-2 left-0 ">
           <img
-            src="/draftGraphic.svg"
+            src="/submitGraphic.svg"
             alt="Card graphic"
             className="w-50 h-50"
           />
@@ -51,25 +56,25 @@ const ApplicationCard: React.FC<ButtonProps> = ({
   // Draft or Hover state
   return (
     <div
-      className="relative w-64 h-64 bg-black border-3 border-white shadow-[3px_3px_0_0_#79FFD8] overflow-hidden cursor-pointer"
-
+      className="relative w-64 h-64 bg-black border-3 border-white shadow-[3px_3px_0_0_lightgreen] overflow-hidden cursor-pointer transition-transform duration-300 hover:-translate-1"
+      onClick={onClick}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Left vertical "DRAFT" */}
-      <div className="absolute left-8 top-13 w-6 flex items-center justify-center text-gray-600 rotate-[90deg] origin-top-left text-3xl font-orbitron font-bold">
+      < div className="absolute left-8 top-13 w-6 flex items-center justify-center text-gray-600 rotate-[90deg] origin-top-left text-3xl font-orbitron font-bold" >
         DRAFT
-      </div>
+      </div >
 
       {/* Department and Last Save */}
 
-      <div className="absolute top-2 right-2">
-        <div className="font-orbitron font-bold text-[#00BC85] text-xl">{department}</div>
-        <div className="flex items-end font-orbitron mt-1">
-          <div className="font-mono tracking-widest text-gray-500 text-xs">LAST SAVE:</div>
-          <div className="text-white ml-1 text-base">{lastSave}</div>
+      < div className="absolute top-2 right-2" >
+        <div className="font-orbitron font-bold text-green text-xl">{department}</div>
+        <div className="flex items-center font-orbitron mt-1">
+          <div className="font-mono text-gray-500 text-xs">LAST SAVE:</div>
+          <div className="text-white tracking-widest ml-1 text-base">{lastSave}</div>
         </div>
-      </div>
+      </div >
       {/* Center graphic */}
       < div className="absolute bottom-0 right-0" >
         <img
