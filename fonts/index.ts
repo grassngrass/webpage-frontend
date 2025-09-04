@@ -1,6 +1,7 @@
 import {
     Orbitron,
     Rubik_Mono_One,
+    Oi,
 } from "next/font/google";
 
 export const OrbitronFont = Orbitron({
@@ -13,4 +14,10 @@ export const RubikMonoOneFont = Rubik_Mono_One({
     subsets : ["latin"],
     weight: ["400"],
     variable :  "--font-rubik-mono-one"
+})
+
+export const OiFont = Oi({
+    subsets : ["latin"],
+    weight: ["400"],
+    variable :  "--font-oi"
 })

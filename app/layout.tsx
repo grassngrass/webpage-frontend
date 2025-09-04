@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { OrbitronFont, RubikMonoOneFont } from "@/fonts";
+import { OiFont, OrbitronFont, RubikMonoOneFont } from "@/fonts";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,7 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${OrbitronFont.variable} ${RubikMonoOneFont.variable} w-screen h-screen antialiased`}
+        className={`${OrbitronFont.variable} ${RubikMonoOneFont.variable} ${OiFont.variable} w-screen h-screen antialiased`}
       >
         {children}
       </body>
